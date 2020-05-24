@@ -8,51 +8,53 @@
  * @package _s
  */
 
+do_action( 'edunxt_action_doctype' );
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="https://gmpg.org/xfn/11">
+<?php
+/**
+* Hook - edunxt_action_head.
+*
+* @hooked edunxt_head -  10
+*/
+do_action( 'edunxt_action_head' );
+?>
 
-	<?php wp_head(); ?>
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', '_s' ); ?></a>
+<?php
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$_s_description = get_bloginfo( 'description', 'display' );
-			if ( $_s_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $_s_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+/**
+* Hook - edunxt_action_before.
+*
+* @hooked edunxt_page_start - 10
+*/
+do_action( 'edunxt_action_before' );
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '_s' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+/**
+*
+* @hooked edunxt_header_start - 10
+*/
+do_action( 'edunxt_action_before_header' );
+
+/**
+*
+*@hooked edunxt_site_branding - 10
+*@hooked edunxt_header_end - 15
+*/
+do_action('edunxt_action_header');
+
+/**
+*
+* @hooked edunxt_content_start - 10
+*/
+do_action( 'edunxt_action_before_content' );
+
+/**
+ * Banner start
+ *
+ * @hooked edunxt_banner_header - 10
+*/
+do_action( 'edunxt_banner_header' );
