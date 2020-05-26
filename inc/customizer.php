@@ -18,21 +18,6 @@ function edunxt_customize_register( $wp_customize ) {
 	// Register custom section types.
 	$wp_customize->register_section_type( 'edunxt_Customize_Section_Upsell' );
 
-	// Register sections.
-	$wp_customize->add_section(
-		new edunxt_Customize_Section_Upsell(
-			$wp_customize,
-			'theme_upsell',
-			array(
-				'title'    => esc_html__( 'edunxt Pro', 'edunxt' ),
-				'pro_text' => esc_html__( 'Buy Pro', 'edunxt' ),
-				'pro_url'  => 'http://www.sensationaltheme.com/downloads/edunxt-pro/',
-				'priority'  => 10,
-			)
-		)
-	);
-
-
 	// Add Panel.
 	$wp_customize->add_panel( 'theme_option_panel',
 		array(
@@ -66,7 +51,7 @@ function edunxt_customize_register( $wp_customize ) {
 
 	// Load home page sections option.
 	include get_template_directory() . '/inc/customizer/home-section.php';
-	
+
 }
 add_action( 'customize_register', 'edunxt_customize_register' );
 
