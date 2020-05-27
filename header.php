@@ -42,7 +42,7 @@ do_action( 'edunxt_action_before_header' );
 /**
 *
 *@hooked edunxt_site_branding - 10
-*@hooked edunxt_header_end - 15
+*@hooked edunxt_header_end - 15 
 */
 do_action('edunxt_action_header');
 
@@ -54,7 +54,7 @@ do_action( 'edunxt_action_before_content' );
 
 /**
  * Banner start
- *
+ * 
  * @hooked edunxt_banner_header - 10
 */
-do_action( 'edunxt_banner_header' );
+do_action( 'edunxt_banner_header' );  

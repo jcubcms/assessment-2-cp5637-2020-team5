@@ -27,7 +27,7 @@ function edunxt_site_branding() { ?>
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">  <?php bloginfo( 'name' ); ?></a>
                 </h1>
 
-                <?php
+                <?php 
                     $description = get_bloginfo( 'description', 'display' );
                     if ( $description || is_customize_preview() ) : ?>
                     <p class="site-description"><?php echo esc_html($description);?></p>
@@ -59,7 +59,7 @@ add_action( 'edunxt_action_header', 'edunxt_site_branding', 10 );
 if ( ! function_exists( 'edunxt_footer_top_section' ) ) :
 
   /**
-   * Top  Footer
+   * Top  Footer 
    *
    * @since 1.0.0
    */
@@ -84,7 +84,7 @@ if ( ! function_exists( 'edunxt_footer_top_section' ) ) :
               }
             ?>
             </div>
-
+          
       </div> <!-- widget area starting from here -->
     <?php
  }
@@ -102,8 +102,8 @@ if ( ! function_exists( 'edunxt_footer_section' ) ) :
 
   function edunxt_footer_section() { ?>
         <div class="site-info">
-            <?php
-                $copyright_footer = edunxt_get_option('copyright_text');
+            <?php 
+                $copyright_footer = edunxt_get_option('copyright_text'); 
                 if ( ! empty( $copyright_footer ) ) {
                 $copyright_footer = wp_kses_data( $copyright_footer );
                 }
@@ -112,9 +112,9 @@ if ( ! function_exists( 'edunxt_footer_section' ) ) :
             ?>
             <div class="wrapper">
                 <span class="copy-right"><?php echo esc_html($copyright_footer);?><?php echo $powered_by_text;?></span>
-            </div>
+            </div> 
         </div> <!-- site generator ends here -->
-
+        
     <?php }
 
 endif;
@@ -209,9 +209,9 @@ if( ! function_exists( 'edunxt_banner_header
     /**
      * Page Header
     */
-    function edunxt_banner_header() {
+    function edunxt_banner_header() { 
 
-        if ( is_front_page() && is_home() ){
+        if ( is_front_page() && is_home() ){ 
             $header_image = get_header_image();
             $header_image_url = ! empty( $header_image ) ?  $header_image : get_template_directory_uri() . '/assets/images/default-header.jpg';
         }
@@ -223,7 +223,7 @@ if( ! function_exists( 'edunxt_banner_header
         } ?>
         <div id="page-site-header" style="background-image: url('<?php echo esc_url( $header_image_url ); ?>');">
             <div class="overlay"></div>
-            <header class='page-header'>
+            <header class='page-header'> 
                 <div class="wrapper">
                     <?php edunxt_banner_title();?>
                 </div><!-- .wrapper -->
@@ -238,8 +238,8 @@ if( ! function_exists( 'edunxt_banner_title' ) ) :
 /**
  * Page Header
 */
-function edunxt_banner_title(){
-    if ( ( is_front_page() && is_home() ) || is_home() ){
+function edunxt_banner_title(){ 
+    if ( ( is_front_page() && is_home() ) || is_home() ){ 
         echo '<h2 class="page-title">';
         esc_html_e( 'Blog','edunxt' );
         echo '</h2>';
@@ -247,7 +247,7 @@ function edunxt_banner_title(){
 
     if( is_singular() ) {
         the_title( '<h2 class="page-title">', '</h2>' );
-    }
+    }       
 
     if( is_archive() ){
         the_archive_description( '<div class="archive-description">', '</div>' );
@@ -257,7 +257,7 @@ function edunxt_banner_title(){
     if( is_search() ){ ?>
         <h2 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'edunxt' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
     <?php }
-
+    
     if( is_404() ) {
         echo '<h2 class="page-title">' . esc_html__( 'Error 404', 'edunxt' ) . '</h2>';
     }
@@ -275,7 +275,7 @@ function edunxt_banner_image( $image_url ){
     $search_header = edunxt_get_option( 'search_header_image' );
     $header_404 = edunxt_get_option( '404_header_image' );
 
-    if ( is_home() && ! is_front_page() ){
+    if ( is_home() && ! is_front_page() ){ 
         $image_url      = get_the_post_thumbnail_url( get_option( 'page_for_posts' ), 'full' );
         $header_image = get_header_image();
         $fallback_image = ! empty( $header_image ) ?  $header_image : get_template_directory_uri() . '/assets/images/default-header.jpg';
@@ -290,7 +290,7 @@ function edunxt_banner_image( $image_url ){
     elseif( is_archive() ){
         $image_url = ( ! empty( $archive_header) ) ? $archive_header : get_template_directory_uri() . '/assets/images/default-header.jpg';
     }
-    elseif( is_search() ){
+    elseif( is_search() ){ 
         $image_url = ( ! empty( $search_header) ) ? $search_header : get_template_directory_uri() . '/assets/images/default-header.jpg';
     }
     elseif( is_404() ) {
@@ -318,7 +318,7 @@ if ( ! function_exists( 'edunxt_posts_tags' ) ) :
                         }
                     } ?>
                 </div><!-- .tags-links -->
-        <?php }
+        <?php } 
     }
 endif;
 
@@ -332,7 +332,7 @@ function edunxt_render_social_links() {
         $social_link1 = edunxt_get_option( 'social_link_1' );
         $social_link2 = edunxt_get_option( 'social_link_2' );
         $social_link3 = edunxt_get_option( 'social_link_3' );
-
+        
         if ( empty( $social_link1 ) && empty( $social_link2 ) && empty( $social_link3 ) && empty( $social_link4 ) && empty( $social_link5 ) ) {
                 return;
         }

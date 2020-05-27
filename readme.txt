@@ -1,4 +1,4 @@
-== Edunxt ===
+=== Edunxt ===
 
 Contributors: Aishwarya Dongare and Varun Vyas
 Tags: translation-ready, custom-background, theme-options, custom-menu, threaded-comments, featured-images, footer-widgets, left-sidebar, editor-style, right-sidebar, full-width-template, two-columns, grid-layout, custom-header, custom-logo, featured-image-header, blog

@@ -1,11 +1,11 @@
 jQuery(document).ready(function($) {
 
-    /*------------------------------------------------
-                DECLARATIONS
-    ------------------------------------------------*/
+/*------------------------------------------------
+            DECLARATIONS
+------------------------------------------------*/
 
     var menu_toggle = $('.menu-toggle');
-    var scroll = $(window).scrollTop();
+    var scroll = $(window).scrollTop();  
     var scrollup = $('.backtotop');
     var nav_menu = $('.main-navigation ul.nav-menu');
     var featured_slider = $('.featured-slider-wrapper');
@@ -20,9 +20,9 @@ jQuery(document).ready(function($) {
     $(window).scroll(function() {
         if ($(this).scrollTop() > 1) {
             scrollup.css({bottom:"25px"});
-        }
+        } 
         else {
-            scrollup.css({bottom:"-100px"});
+            scrollup.css({bottom:"-100px"}); 
         }
     });
 
@@ -32,9 +32,9 @@ jQuery(document).ready(function($) {
     });
 
 
-    /*------------------------------------------------
-                MAIN NAVIGATION
-    ------------------------------------------------*/
+/*------------------------------------------------
+            MAIN NAVIGATION
+------------------------------------------------*/
 
     menu_toggle.click(function(){
         nav_menu.slideToggle();
@@ -44,10 +44,10 @@ jQuery(document).ready(function($) {
 
     $('button.dropdown-toggle').click(function() {
         $(this).toggleClass('active');
-        $(this).parent().find('.sub-menu').first().slideToggle();
+       $(this).parent().find('.sub-menu').first().slideToggle();
     });
 
-    $(window).scroll(function() {
+     $(window).scroll(function() {
         if ($(this).scrollTop() > 1) {
             $('.menu-sticky #masthead').addClass('nav-shrink');
         }
@@ -56,57 +56,57 @@ jQuery(document).ready(function($) {
         }
     });
 
-    /*------------------------------------------------
-                SLICK SLIDER
-    ------------------------------------------------*/
+/*------------------------------------------------
+            SLICK SLIDER
+------------------------------------------------*/
 
     featured_slider.slick();
     testimonial_slider.slick({
         responsive: [{
             breakpoint: 1200,
-            settings: {
-                slidesToShow: 2
-            }
-        },
+                settings: {
+                    slidesToShow: 2
+                }
+            },
             {
-                breakpoint: 767,
+            breakpoint: 767,
                 settings: {
                     slidesToShow: 1
                 }
             },
             {
-                breakpoint: 480,
+            breakpoint: 480,
                 settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }]
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }]
     });
 
     $('.posts-slider').slick({
-        responsive: [{
-            breakpoint: 1024,
+    responsive: [{
+        breakpoint: 1024,
             settings: {
-                slidesToShow: 2
-            }
-        },
-            {
-                breakpoint: 767,
-                settings: {
-                    slidesToShow: 1
-                }
-            }]
-    });
-
-    /*------------------------------------------------
-                MATCH HEIGHT
-    ------------------------------------------------*/
+            slidesToShow: 2
+        }
+    },
+    {
+        breakpoint: 767,
+        settings: {
+            slidesToShow: 1
+        }
+    }]
+});
+    
+/*------------------------------------------------
+            MATCH HEIGHT
+------------------------------------------------*/
 
     posts_height.matchHeight();
     $('#courses article').matchHeight();
 
-    /*------------------------------------------------
-                    END JQUERY
-    ------------------------------------------------*/
+/*------------------------------------------------
+                END JQUERY
+------------------------------------------------*/
 
 });

@@ -1008,19 +1008,19 @@
             .on('focus.slick blur.slick',
                 '*:not(.slick-arrow)', function(event) {
 
-                    event.stopImmediatePropagation();
-                    var $sf = $(this);
+            event.stopImmediatePropagation();
+            var $sf = $(this);
 
-                    setTimeout(function() {
+            setTimeout(function() {
 
-                        if( _.options.pauseOnFocus ) {
-                            _.focussed = $sf.is(':focus');
-                            _.autoPlay();
-                        }
+                if( _.options.pauseOnFocus ) {
+                    _.focussed = $sf.is(':focus');
+                    _.autoPlay();
+                }
 
-                    }, 0);
+            }, 0);
 
-                });
+        });
     };
 
     Slick.prototype.getCurrent = Slick.prototype.slickCurrentSlide = function() {
@@ -1318,15 +1318,15 @@
 
         if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
             _.$prevArrow
-                .off('click.slick')
-                .on('click.slick', {
+               .off('click.slick')
+               .on('click.slick', {
                     message: 'previous'
-                }, _.changeSlide);
+               }, _.changeSlide);
             _.$nextArrow
-                .off('click.slick')
-                .on('click.slick', {
+               .off('click.slick')
+               .on('click.slick', {
                     message: 'next'
-                }, _.changeSlide);
+               }, _.changeSlide);
         }
 
     };
@@ -1431,7 +1431,7 @@
     Slick.prototype.keyHandler = function(event) {
 
         var _ = this;
-        //Dont slide if the cursor is inside the form fields and arrow keys are pressed
+         //Dont slide if the cursor is inside the form fields and arrow keys are pressed
         if(!event.target.tagName.match('TEXTAREA|INPUT|SELECT')) {
             if (event.keyCode === 37 && _.options.accessibility === true) {
                 _.changeSlide({
@@ -2039,102 +2039,102 @@
     };
 
     Slick.prototype.setOption =
-        Slick.prototype.slickSetOption = function() {
+    Slick.prototype.slickSetOption = function() {
 
-            /**
-             * accepts arguments in format of:
-             *
-             *  - for changing a single option's value:
-             *     .slick("setOption", option, value, refresh )
-             *
-             *  - for changing a set of responsive options:
-             *     .slick("setOption", 'responsive', [{}, ...], refresh )
-             *
-             *  - for updating multiple values at once (not responsive)
-             *     .slick("setOption", { 'option': value, ... }, refresh )
-             */
+        /**
+         * accepts arguments in format of:
+         *
+         *  - for changing a single option's value:
+         *     .slick("setOption", option, value, refresh )
+         *
+         *  - for changing a set of responsive options:
+         *     .slick("setOption", 'responsive', [{}, ...], refresh )
+         *
+         *  - for updating multiple values at once (not responsive)
+         *     .slick("setOption", { 'option': value, ... }, refresh )
+         */
 
-            var _ = this, l, item, option, value, refresh = false, type;
+        var _ = this, l, item, option, value, refresh = false, type;
 
-            if( $.type( arguments[0] ) === 'object' ) {
+        if( $.type( arguments[0] ) === 'object' ) {
 
-                option =  arguments[0];
-                refresh = arguments[1];
-                type = 'multiple';
+            option =  arguments[0];
+            refresh = arguments[1];
+            type = 'multiple';
 
-            } else if ( $.type( arguments[0] ) === 'string' ) {
+        } else if ( $.type( arguments[0] ) === 'string' ) {
 
-                option =  arguments[0];
-                value = arguments[1];
-                refresh = arguments[2];
+            option =  arguments[0];
+            value = arguments[1];
+            refresh = arguments[2];
 
-                if ( arguments[0] === 'responsive' && $.type( arguments[1] ) === 'array' ) {
+            if ( arguments[0] === 'responsive' && $.type( arguments[1] ) === 'array' ) {
 
-                    type = 'responsive';
+                type = 'responsive';
 
-                } else if ( typeof arguments[1] !== 'undefined' ) {
+            } else if ( typeof arguments[1] !== 'undefined' ) {
 
-                    type = 'single';
-
-                }
+                type = 'single';
 
             }
 
-            if ( type === 'single' ) {
+        }
 
-                _.options[option] = value;
+        if ( type === 'single' ) {
 
-
-            } else if ( type === 'multiple' ) {
-
-                $.each( option , function( opt, val ) {
-
-                    _.options[opt] = val;
-
-                });
+            _.options[option] = value;
 
 
-            } else if ( type === 'responsive' ) {
+        } else if ( type === 'multiple' ) {
 
-                for ( item in value ) {
+            $.each( option , function( opt, val ) {
 
-                    if( $.type( _.options.responsive ) !== 'array' ) {
+                _.options[opt] = val;
 
-                        _.options.responsive = [ value[item] ];
+            });
 
-                    } else {
 
-                        l = _.options.responsive.length-1;
+        } else if ( type === 'responsive' ) {
 
-                        // loop through the responsive object and splice out duplicates.
-                        while( l >= 0 ) {
+            for ( item in value ) {
 
-                            if( _.options.responsive[l].breakpoint === value[item].breakpoint ) {
+                if( $.type( _.options.responsive ) !== 'array' ) {
 
-                                _.options.responsive.splice(l,1);
+                    _.options.responsive = [ value[item] ];
 
-                            }
+                } else {
 
-                            l--;
+                    l = _.options.responsive.length-1;
+
+                    // loop through the responsive object and splice out duplicates.
+                    while( l >= 0 ) {
+
+                        if( _.options.responsive[l].breakpoint === value[item].breakpoint ) {
+
+                            _.options.responsive.splice(l,1);
 
                         }
 
-                        _.options.responsive.push( value[item] );
+                        l--;
 
                     }
+
+                    _.options.responsive.push( value[item] );
 
                 }
 
             }
 
-            if ( refresh ) {
+        }
 
-                _.unload();
-                _.reinit();
+        if ( refresh ) {
 
-            }
+            _.unload();
+            _.reinit();
 
-        };
+        }
+
+    };
 
     Slick.prototype.setPosition = function() {
 
@@ -2342,7 +2342,7 @@
                 }
 
                 for (i = _.slideCount; i > (_.slideCount -
-                    infiniteCount); i -= 1) {
+                        infiniteCount); i -= 1) {
                     slideIndex = i - 1;
                     $(_.$slides[slideIndex]).clone(true).attr('id', '')
                         .attr('data-slick-index', slideIndex - _.slideCount)

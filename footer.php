@@ -9,26 +9,20 @@
  * @package _s
  */
 
-?>
+do_action( 'edunxt_action_before_footer' );
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="http://underscores.me/">Underscores.me</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+/**
+ * Hooked - edunxt_footer_top_section -10
+ * Hooked - edunxt_footer_section -20
+ */
+do_action( 'edunxt_action_footer' );
 
-<?php wp_footer(); ?>
+/**
+ * Hooked - edunxt_footer_end. 
+ */
+do_action( 'edunxt_action_after_footer' );
 
-</body>
+wp_footer(); ?>
+
+</body>  
 </html>

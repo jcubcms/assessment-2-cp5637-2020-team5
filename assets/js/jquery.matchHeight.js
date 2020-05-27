@@ -1,8 +1,8 @@
 /**
- * jquery-match-height 0.7.2 by @liabru
- * http://brm.io/jquery-match-height/
- * License: MIT
- */
+* jquery-match-height 0.7.2 by @liabru
+* http://brm.io/jquery-match-height/
+* License: MIT
+*/
 
 ;(function(factory) { // eslint-disable-line no-extra-semi
     'use strict';
@@ -118,7 +118,7 @@
                 group.elements = group.elements.not(that);
             });
 
-            // : cleanup empty groups
+            // TODO: cleanup empty groups
 
             return this;
         }

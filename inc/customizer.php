@@ -51,7 +51,7 @@ function edunxt_customize_register( $wp_customize ) {
 
 	// Load home page sections option.
 	include get_template_directory() . '/inc/customizer/home-section.php';
-
+	
 }
 add_action( 'customize_register', 'edunxt_customize_register' );
 
